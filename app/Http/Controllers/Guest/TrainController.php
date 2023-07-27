@@ -6,10 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Train;
 
-class TrainsController extends Controller
+class TrainController extends Controller
 {
     public function index(){
-        
-        return view('home');
+        $trains = Train::where('date', '2023-07-26')->get();
+
+        return view('home', compact('trains'));
     }
 }
